@@ -6,12 +6,13 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:17:32 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/06/17 22:19:20 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/07/15 15:14:31 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
+# include <stdarg.h>
 
 int	ft_printf(const char *, ...);
 
