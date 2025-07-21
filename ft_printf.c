@@ -6,34 +6,12 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 17:30:05 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/07/21 16:45:50 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:22:17 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include "ft_printf_utils.c"
-
-/*#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-int	ft_putstr(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
-}*/
+//#include "ft_printf_utils.c"
 
 int	ft_printf(const char *format, ...)
 {

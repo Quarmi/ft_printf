@@ -6,7 +6,7 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:17:32 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/07/21 15:55:44 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:23:14 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@
 # include <unistd.h>
 
 int	ft_printf(const char *format, ...);
+void	ft_putchar(char c);
+int	ft_putstr(char *s);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/21 16:29:49 by irmarqui          #+#    #+#              #
-#    Updated: 2025/07/21 16:48:41 by irmarqui         ###   ########.fr        #
+#    Updated: 2025/07/21 17:24:37 by irmarqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,6 @@ OBJS := $(SRC:%.c=%.o)
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
-
-AR = ar crs
 
 RM = rm -f
 
@@ -36,7 +34,7 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(OBJS)
+	$(RM) $(NAME)
 
 re: fclean all
 
