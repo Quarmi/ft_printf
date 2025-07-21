@@ -6,7 +6,7 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:50:26 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/07/21 17:23:12 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:31:09 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 
 int	main(void)
 {
-	char	*str = "Hello World";
+	char	*str = "Bonjour";
 	char	c = 'v';
-	char	d = 'x';
+	int	r = -42;
 
-	printf("\n%i", printf("Hello %c %% World %c %s", c, d, str));
+//	printf("PRINTF POINTEUR : %p\n", &str);
+	printf("\nPRINTF COUNT : %i", printf("PRINTF : Hello %c %% World %s %i", c, str, r));
 	printf("\n");
-	printf("\n%i", ft_printf("Hello %c %% World %c %s", c, d, str));
+	printf("\nFT_PRINTF COUNT : %i", (ft_printf("FT_PRINTF : Hello %c %% World %s %i", c, str, r) - 3));
 	return (0);
 }
