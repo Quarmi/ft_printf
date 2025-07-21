@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/17 22:17:32 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/07/21 15:55:44 by irmarqui         ###   ########.fr       */
+/*   Created: 2025/07/21 16:42:59 by irmarqui          #+#    #+#             */
+/*   Updated: 2025/07/21 16:45:01 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
-int	ft_printf(const char *format, ...);
+int	ft_putstr(char *s)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (i);
+}
