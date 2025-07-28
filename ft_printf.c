@@ -6,7 +6,7 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 17:30:05 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/07/21 18:15:53 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/07/28 17:31:02 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ int	ft_check_type(va_list args, char c)
 	}
 	else if (c == 's')
 		count = ft_putstr(va_arg(args, char *));
-	else if (c == 'i')
+	else if (c == 'i' || c == 'd')
 		count = ft_putnbr(va_arg(args, int));
+	else if (c == 'u')
+		count = ft_putunbr(va_arg(args, unsigned int));
 	return (count);
 }
 

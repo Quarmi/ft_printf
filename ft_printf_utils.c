@@ -6,15 +6,15 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:42:59 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/07/21 18:32:24 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/07/28 17:36:28 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	return (write(1, &c, 1));
 }
 
 int	ft_putstr(char *s)
@@ -34,30 +34,40 @@ int	ft_putstr(char *s)
 
 int	ft_putnbr(int n)
 {
-	int	count;
+	int	icount;
 
-	count = 0;
+	icount = 0;
 	if (n == -2147483648)
 		return(ft_putstr("-2147483648"));
 	else
 	{
 		if (n < 0)
 		{
-			ft_putchar('-');
-			ft_putnbr(-n);
-			count++;
+			icount += ft_putchar('-');
+			n *= -1;
 		}
-		else if (n > 9)
+		if (n > 9)
 		{
-			ft_putnbr(n / 10);
-			ft_putnbr(n % 10);
-//			count++;
+			icount += ft_putnbr(n / 10);
+			icount += ft_putnbr(n % 10);
 		}
 		else
-		{
-			ft_putchar(n + 48);
-			count++;
-		}
+			icount += ft_putchar(n + 48);
 	}
-	return (count);
+	return (icount);
+}
+
+int	ft_putunbr(unsigned int u)
+{
+	unsigned int	ucount;
+
+	ucount = 0;
+	if (u > 9)
+	{
+		ucount += ft_putunbr(u / 10);
+		ucount += ft_putunbr(u % 10);
+	}
+	else
+		ucount += ft_putchar(u + 48);
+	return (ucount);
 }
