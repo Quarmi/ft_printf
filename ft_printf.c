@@ -6,11 +6,11 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 17:30:05 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/08/11 17:25:18 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/08/11 18:23:26 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 //#include "ft_printf_utils.c"
 
 int	ft_check_type(va_list args, char c)

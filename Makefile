@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/21 16:29:49 by irmarqui          #+#    #+#              #
-#    Updated: 2025/07/21 17:24:37 by irmarqui         ###   ########.fr        #
+#    Created: 2025/07/16 15:25:44 by irmarqui          #+#    #+#              #
+#    Updated: 2025/08/11 18:16:20 by irmarqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = executable
+NAME = libftprintf.a
 
-SRC = ft_printf.c ft_printf_utils.c test_printf.c
+SRC = ft_printf.c ft_printf_utils.c
 
 OBJS := $(SRC:%.c=%.o)
 
@@ -20,15 +20,17 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
+AR = ar crs
+
 RM = rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(AR) $(NAME) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
 	$(RM) $(OBJS)
@@ -38,4 +40,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean

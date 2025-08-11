@@ -6,11 +6,11 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:42:59 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/08/11 17:23:28 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/08/11 18:23:47 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

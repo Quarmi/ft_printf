@@ -6,12 +6,12 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:50:26 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/08/11 17:33:07 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/08/11 18:24:21 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "libftprintf.h"
+#include "ft_printf.h"
 //#include "ft_printf.c"
 
 int	main(void)
