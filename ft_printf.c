@@ -6,7 +6,7 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 17:30:05 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/08/11 16:43:48 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/08/11 17:25:18 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,27 @@ int	ft_check_type(va_list args, char c)
 	}
 	else if (c == 's')
 		count = ft_putstr(va_arg(args, char *));
+	else if (c == 'p')
+	{
+		count += ft_putstr("0x");
+		count += ft_putpoint(va_arg(args, unsigned long long));
+	}
 	else if (c == 'i' || c == 'd')
 		count = ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
 		count = ft_putunbr(va_arg(args, unsigned int));
 	else if (c == 'x')
 		count = ft_puthexlow(va_arg(args, unsigned int));
+	else if (c == 'X')
+		count = ft_puthexup(va_arg(args, unsigned int));
 
 	return (count);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	int	i;
-	int	count;
+	int		i;
+	int		count;
 	va_list	args;
 
 	va_start(args, format);

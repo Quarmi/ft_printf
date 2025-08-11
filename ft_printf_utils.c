@@ -6,7 +6,7 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:42:59 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/08/11 16:45:11 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/08/11 17:23:28 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_putnbr(int n)
 
 	icount = 0;
 	if (n == -2147483648)
-		return(ft_putstr("-2147483648"));
+		return (ft_putstr("-2147483648"));
 	else
 	{
 		if (n < 0)
@@ -59,7 +59,7 @@ int	ft_putnbr(int n)
 
 int	ft_putunbr(unsigned int u)
 {
-	unsigned int	ucount;
+	int	ucount;
 
 	ucount = 0;
 	if (u > 9)
@@ -74,12 +74,12 @@ int	ft_putunbr(unsigned int u)
 
 int	ft_puthexlow(unsigned int hl)
 {
-	unsigned int	hlcount;
 	char	*base;
+	int	hlcount;
 
 	hlcount = 0;
 	base = "0123456789abcdef";
-	if (hl > 16)
+	if (hl > 15)
 	{
 		hlcount += ft_puthexlow(hl / 16);
 		hlcount += ft_puthexlow(hl % 16);
@@ -87,4 +87,38 @@ int	ft_puthexlow(unsigned int hl)
 	else
 		hlcount += ft_putchar(base[hl % 16]);
 	return (hlcount);
+}
+
+int	ft_puthexup(unsigned int hu)
+{
+	char	*base;
+	int	hucount;
+
+	hucount = 0;
+	base = "0123456789ABCDEF";
+	if (hu > 15)
+	{
+		hucount += ft_puthexup(hu / 16);
+		hucount += ft_puthexup(hu % 16);
+	}
+	else
+		hucount += ft_putchar(base[hu % 16]);
+	return (hucount);
+}
+
+int	ft_putpoint(unsigned long long p)
+{
+	char	*base;
+	int	pcount;
+
+	pcount = 0;
+	base = "0123456789abcdef";
+	if (p > 15)
+	{
+		pcount += ft_putpoint(p / 16);
+		pcount += ft_putpoint(p % 16);
+	}
+	else
+		pcount += ft_putchar(base[p % 16]);
+	return (pcount);
 }
