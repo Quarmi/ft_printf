@@ -6,7 +6,7 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:42:59 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/07/28 17:36:28 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/08/11 16:45:11 by irmarqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,21 @@ int	ft_putunbr(unsigned int u)
 	else
 		ucount += ft_putchar(u + 48);
 	return (ucount);
+}
+
+int	ft_puthexlow(unsigned int hl)
+{
+	unsigned int	hlcount;
+	char	*base;
+
+	hlcount = 0;
+	base = "0123456789abcdef";
+	if (hl > 16)
+	{
+		hlcount += ft_puthexlow(hl / 16);
+		hlcount += ft_puthexlow(hl % 16);
+	}
+	else
+		hlcount += ft_putchar(base[hl % 16]);
+	return (hlcount);
 }
