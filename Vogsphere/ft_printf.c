@@ -6,12 +6,11 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 17:30:05 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/08/15 16:40:15 by colonelolrik     ###   ########.fr       */
+/*   Updated: 2025/08/15 17:12:57 by colonelolrik     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-//#include "ft_printf_utils.c"
 
 int	ft_check_type(va_list args, char c)
 {
@@ -31,18 +30,11 @@ int	ft_check_type(va_list args, char c)
 	else if (c == 's')
 		count = ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
-	{
-//		count += ft_putstr("0x");
 		count += ft_putpoint(va_arg(args, void *));
-	}
 	else if (c == 'i' || c == 'd')
 		count = ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
 		count = ft_putunbr(va_arg(args, unsigned int));
-/*	else if (c == 'x')
-		count = ft_puthexlow(va_arg(args, unsigned int));
-	else if (c == 'X')
-		count = ft_puthexup(va_arg(args, unsigned int));*/
 	else if (c == 'x' || c == 'X')
 		count = ft_puthex(va_arg(args, unsigned int), c);
 	return (count);

@@ -6,7 +6,7 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:42:59 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/08/11 18:23:47 by irmarqui         ###   ########.fr       */
+/*   Updated: 2025/08/15 16:40:42 by colonelolrik     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	ft_putstr(char *s)
 	int	i;
 
 	i = 0;
-	if (s[i] == '\0')
-		return (0);
+	if (!s)
+		return (write(1, "(null)", 6));
 	while (s[i])
 	{
 		write(1, &s[i], 1);
@@ -72,7 +72,7 @@ int	ft_putunbr(unsigned int u)
 	return (ucount);
 }
 
-int	ft_puthexlow(unsigned int hl)
+/*int	ft_puthexlow(unsigned int hl)
 {
 	char	*base;
 	int	hlcount;
@@ -106,19 +106,70 @@ int	ft_puthexup(unsigned int hu)
 	return (hucount);
 }
 
-int	ft_putpoint(unsigned long long p)
+int	ft_putpoint(void *p)
 {
 	char	*base;
 	int	pcount;
 
 	pcount = 0;
 	base = "0123456789abcdef";
-	if (p > 15)
+	if (!p)
+		return (write(1, "(nil)", 5));
+//	else
+//		pcount += ft_putstr("0x");
+	else
 	{
-		pcount += ft_putpoint(p / 16);
-		pcount += ft_putpoint(p % 16);
+		if (p > 15)
+		{
+			pcount += ft_putpoint(p / 16);
+			pcount += ft_putpoint(p % 16);
+		}
+		else
+			pcount += ft_putchar(base[p % 16]);
+	}
+
+	return (pcount);
+}*/
+
+int	ft_converthex(unsigned long nb, char *base)
+{
+	int	count;
+
+	count = 0;
+	if (nb > 15)
+	{
+		count += ft_converthex(nb / 16, base);
+		count += ft_converthex(nb % 16, base);
 	}
 	else
-		pcount += ft_putchar(base[p % 16]);
+		count += ft_putchar(base[nb % 16]);
+	return (count);
+}
+
+int	ft_puthex(unsigned int h, char c)
+{
+	char	*base;
+
+	if (c == 'x')
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
+	return (ft_converthex(h, base));
+}
+
+int	ft_putpoint(void *p)
+{
+	int	pcount;
+	char	*base;
+
+	base = "0123456789abcdef";
+	pcount = 0;
+	if (!p)
+		return (write(1, "(nil)", 5));
+	else
+	{
+		pcount += ft_putstr("0x");
+		pcount += ft_converthex((unsigned long) p, base);
+	}
 	return (pcount);
 }

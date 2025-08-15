@@ -6,7 +6,7 @@
 /*   By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:17:32 by irmarqui          #+#    #+#             */
-/*   Updated: 2025/08/15 16:40:32 by colonelolrik     ###   ########.fr       */
+/*   Updated: 2025/08/15 16:48:33 by colonelolrik     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_putnbr(int n);
 int	ft_putunbr(unsigned int un);
 //int	ft_puthexlow(unsigned int hl);
 //int	ft_puthexup(unsigned int hu);
-int	ft_converthex(unsigned long, char *base);
+int	ft_converthex(unsigned long nb, char *base);
 int	ft_puthex(unsigned int h, char c);
 int	ft_putpoint(void *p);
 

@@ -1,0 +1,43 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: irmarqui <irmarqui@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/07/16 15:25:44 by irmarqui          #+#    #+#              #
+#    Updated: 2025/08/15 17:11:23 by colonelolrik     ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libftprintf.a
+
+SRC = ft_printf.c ft_printf_utils.c ft_printf_utils2.c
+
+OBJS := $(SRC:%.c=%.o)
+
+CC = cc
+
+CFLAGS = -Wall -Wextra -Werror
+
+AR = ar crs
+
+RM = rm -f
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+clean:
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: clean
